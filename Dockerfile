@@ -5,11 +5,13 @@ ADD go.mod go.sum /build/
 RUN go mod download -x
 ADD cmd /build/cmd
 ADD pkg /build/pkg
+ENV TARGETARCH=arm64
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=${TARGETARCH} \
   go build -a -ldflags '-extldflags "-static"' -o ./s3driver ./cmd/s3driver
 
 FROM alpine:latest
 LABEL description="csi-s3 slim image"
+ENV TARGETARCH=arm64
 
 RUN apk add --no-cache fuse mailcap
 
