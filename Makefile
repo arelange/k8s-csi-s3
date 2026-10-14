@@ -13,7 +13,7 @@
 # limitations under the License.
 .PHONY: test build container push clean
 
-REGISTRY_NAME=ghcr.io/arelange/
+REGISTRY_NAME=ghcr.io/arelange
 IMAGE_NAME=csi-s3
 VERSION ?= 0.43.7
 IMAGE_TAG=$(REGISTRY_NAME)/$(IMAGE_NAME):$(VERSION)
