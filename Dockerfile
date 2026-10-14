@@ -11,8 +11,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=${TARGETARCH} \
 FROM alpine:latest
 LABEL description="csi-s3 slim image"
 
-RUN apk add --no-cache fuse mailcap rclone
-RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community s3fs-fuse
+RUN apk add --no-cache fuse mailcap
 
 ADD https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-${TARGETARCH} /usr/bin/geesefs
 RUN chmod 755 /usr/bin/geesefs
